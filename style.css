@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #E5E5E5;
+}
+
+.main-section{
+    background-color: #C4C4C4;
+    width: 661px;
+    height: 763px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+
+}
+
+.main-section__input{
+    width: 561px;
+    height: 61px;
+    margin-top: 62px;
+
+}
