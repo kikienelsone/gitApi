@@ -3,12 +3,14 @@ body{
     padding: 0;
     list-style: none;
     background-color: #E5E5E5;
+    font-family: "Roboto Light", sans-serif;
+    font-weight: lighter;
 }
 
 .main-section{
     background-color: #C4C4C4;
     width: 661px;
-    height: 763px;
+    min-height: 763px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -16,9 +18,63 @@ body{
 
 }
 
+.list{
+    margin-bottom: 50px;
+}
+
+.main-section__repo-list{
+    margin-top: 45px;
+    font-size: 30px;
+}
+
 .main-section__input{
-    width: 561px;
+    width: 500px;
     height: 61px;
     margin-top: 62px;
+    margin-left: 74px;
+    border: none;
+    font-family:"Roboto Light", sans-serif;
+    font-size: 40px;
+    /*margin-bottom: 90px;*/
+}
 
+.main-section__api-list{
+    width: 492px;
+    height: 95px;
+    background-color: #E27BEB;
+    /*margin: 0 74px 0;*/
+    margin: -56px 74px 0;
+    border: 1px solid;
+    overflow: hidden;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.main-section__api-names{
+    width: 500px;
+    height: 44px;
+    background-color: #E3E3E3;
+    margin: 0 74px;
+    border: 2px solid;
+    overflow: hidden;
+}
+
+.main-section__api-names:hover{
+    background-color: #65CDF9;
+}
+
+.main-section__close-button{
+    background-color: transparent;
+    border: none;
+    color: #FF0000;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 80px;
+    display: inline;
+    background-image: url("./ing/close.png");
+    background-repeat: no-repeat;
+    position: relative;
+    top: -75px;
+    left: 501px;
 }

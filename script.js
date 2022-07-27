@@ -1,7 +1,7 @@
 let input = document.querySelector(".input")
 let ul = document.querySelector(".list")
 let repoList = document.querySelector(".main-section__repo-list")
-let delButton = document.createElement("button")
+
 
 
 const debounce = (fn, debounceTime) => {
@@ -17,49 +17,53 @@ const debounce = (fn, debounceTime) => {
 
 let delay = debounce(getRepositories, 1000)
 
-function showRepositories (tagName) {
-    // ul.style.display = "block"
-    let li = document.createElement("p")
-    // li.style.listStyle = "none"
-    li.innerHTML = tagName
-    ul.append(li)
-      li.addEventListener("click", ()=>{
-          addToReposList(li.currentTarget = tagName)
+function showRepositories (tagValue, tagOwner, tagStar) {
+    let nameRepo = document.createElement("p")
+    nameRepo.classList.add("main-section__api-names")
+    nameRepo.innerHTML = tagValue
+    ul.append(nameRepo)
+      nameRepo.addEventListener("click", ()=>{
+          addToReposList(tagValue, tagOwner, tagStar)
       })
 }
 
 async function getRepositories (value) {
-
     await fetch(`https://api.github.com/search/repositories?q=${value}&per_page=5`)
         .then((res) =>{
             if (res.ok){
                 res.json().then(res =>{
                     res.items.map((item)=>{
-                        console.log(item)
-                        showRepositories(`${item.name}`.toUpperCase())
+                        showRepositories(`${item.name}`, `${item.owner.login}`,`${item.stargazers_count}` )
                     })
                 })
             }
             })
 }
 
-
-function addToReposList(name, star, owner) {
-    let p = document.createElement("p")
-    p.innerHTML = name
-    // delButton.innerHTML = "X"
-    repoList.append(p)
-    repoList.append(delButton)
-    delButton.addEventListener("click", ()=>{
-        p.remove()
-        delButton.remove()
+function removeItem(removeItem) {
+    let closeButton = document.createElement("button")
+    closeButton.classList.add("main-section__close-button")
+    repoList.append(closeButton)
+    closeButton.addEventListener("click",()=>{
+        removeItem.remove()
+        closeButton.remove()
     })
+}
+
+function addToReposList(name, owner, star) {
+    let p = document.createElement("p")
+    p.classList.add("main-section__api-list")
+    p.innerText = `Name:${name}\n Owner:${owner}\n Stars:${star}`
+    repoList.append(p)
+    removeItem(p)
     ul.innerHTML = ""
 }
 
-const inputSearch = (event) => {
+let inputSearch = (event) => {
     input.value? delay(event.target.value) : ""
     ul.innerHTML = ""
 }
 
 input.addEventListener("keyup", inputSearch)
+
+
