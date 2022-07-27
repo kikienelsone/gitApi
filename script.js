@@ -57,6 +57,7 @@ function addToReposList(name, owner, star) {
     repoList.append(p)
     removeItem(p)
     ul.innerHTML = ""
+    input.value = ""
 }
 
 let inputSearch = (event) => {
