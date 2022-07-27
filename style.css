@@ -66,12 +66,9 @@ body{
 .main-section__close-button{
     background-color: transparent;
     border: none;
-    color: #FF0000;
     cursor: pointer;
     height: 50px;
     width: 50px;
-    font-size: 80px;
-    display: inline;
     background-image: url("./ing/close.png");
     background-repeat: no-repeat;
     position: relative;
