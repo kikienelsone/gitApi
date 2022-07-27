@@ -15,7 +15,7 @@ const debounce = (fn, debounceTime) => {
     }
 }
 
-let delay = debounce(getRepositories, 1000)
+let delay = debounce(getRepositories, 1100)
 
 function showRepositories (tagValue, tagOwner, tagStar) {
     let nameRepo = document.createElement("p")
